@@ -1,0 +1,207 @@
+Question 1 :Use the keywords INT_MIN, INT_MAX, and SHRT_MIN to print the minimum and maximum values that can be stored in an integer and a short integer, respectively.
+
+#include "iostream"
+using namespace std;
+int main(){
+
+cout << "Minimun value of int" << INT_MIN << endl;
+cout << "Maximum value of int" << INT_MAX << endl;
+cout << "Maximim value of short int" << SHRT_MAX << endl;
+return 0;
+
+}
+
+
+Question 2: Write a C++ program that declares an integer variable, prints its value, and then prints its memory address using the address-of operator (&)
+
+#include "iostream"
+using namespace std;
+
+int main(){
+
+int num = 12;
+cout << "The value of variable num is " << num << endl;
+cout << "The memeory address of num is " << &num << endl;
+return 0;
+
+}
+
+
+Question 3 :Declare a float variable price without assigning a value. Print the value of price and observe how C++ handles uninitialized float variables
+
+#include "iostream"
+using namespace std;
+
+int main(){
+
+float price;
+cout<< "The value of price: " << price << endl;
+return 0;
+
+}
+
+
+Question 4 : Declare a character variable grade and initialize it with the value 'A'. Print the value of grade.
+
+#include "iostream"
+using namespace std;
+
+int main(){
+
+char grade = 'A';
+cout<< "The value of grade: " << grade << endl;
+return 0;
+
+}
+
+
+Question 5 : Declare a variable without specifying its data type using the auto keyword. Print the type of the variable.
+
+#include "iostream"
+#include "typeinfo"
+
+using namespace std;
+int main(){
+
+auto variable = "String";
+cout<< "The value of variable : " << typeid(variable).name() << endl;
+return 0;
+
+}
+
+
+Question 6 : Use the cin keyword to take user input for an integer variable. Print the entered value
+
+#include "iostream"
+using namespace std;
+int main(){
+  
+  int input;
+  cout << "Enter your age : ";
+  cin >> input;
+  cout << "Your age is : " << input << endl;
+  return 0;
+
+}
+
+
+Question 7 : Create a function named getMilk that prints the message "Get milk". Call this function from the main function and observe the output
+
+#include "iostream"
+using namespace std;
+
+getMilk(){
+	cout << "GET MILK" << endl;
+}
+
+int main(){
+	cout << "The output of getMilk function is" << " ";
+	getMilk();
+	return 0; 
+}
+
+
+Question 8 : Extend the getMilk function to include the steps "Boil it with water" and "Put it in coffee cup". 
+Call this function from the main function and observe the output.
+
+#include "iostream"
+using namespace std;
+
+getMilk(){
+	cout << "GET MILK" << endl;
+	cout << "Boil it with water" << endl;
+	cout << "Put it in coffee cup" << endl;
+}
+
+int main(){
+	cout << "The output of getMilk function :" << endl;
+	getMilk();
+	return 0; 
+}
+
+
+Question 9 :Write a function that uses std::cout to print a message without explicitly specifying the namespace. 
+Call this function from main and observe the output. Discuss the use of using namespace std
+
+#include "iostream"
+using namespace std;
+
+my_func(){
+	std::cout << "Hello" << endl;
+	std::cout << "My name is Harsh" << endl;
+}
+
+int main(){
+	cout << "The output of my function :" << endl;
+	my_func();
+	return 0; 
+}
+// The using namespace std is a directve statement in C++ that tell the compiler 
+// which namespace to used by default. It will make all the names in std namespace 
+// becuase of this we can omit std:: before cout and endl
+
+
+Question 10 : Modify the getMilk function to print each step on a new line using std::endl. Call the function from the main function and observe the formatted output
+
+#include "iostream"
+using namespace std;
+
+getMilk(){
+	std::cout << "GET MILK" << std::endl;
+	std::cout << "Boil it with water" << std::endl;
+	std::cout << "Put it in coffee cup" << std::endl;
+}
+
+int main(){
+	std::cout << "The output of getMilk function :" << std::endl;
+	getMilk();
+	return 0; 
+}
+
+
+Question 11 :Declare a variable x inside a block of code and another variable y inside the main function. 
+Print the values of x and y separately to observe the concept of local scope
+
+#include "iostream"
+using namespace std;
+
+LW(){
+	int x = 10;
+	cout << "Hey from LW function, value of x is: " << x << endl;
+	cout << "And the memory address of x in LW function is " << &x << endl;
+	return 0;	
+}
+
+
+int main(){
+	int x = 15;
+	cout << "Hey from main function, value of x is : " << x<< endl;
+	cout << "And the memory address of x in main function is " << &x << endl;
+	cout << endl;
+	LW();
+	return 0; 
+}
+
+This code explains the concept of local scope that the same variable x one in other block of code and one in main function, both has different value and to verify this 
+we print their memory address. And we observe that both have different address, this means variable name is only bound to its value within a scope thatis not the global scope
+
+
+Question 12 :Create a user-defined function named getUserDrink that prints a message about getting a drink of your choice. 
+Call this function from the main function and observe the output.
+
+#include "iostream"
+#include "string"
+using namespace std;
+
+getUserDrink(){
+		string choice;
+		cout << "tell the drink of your choice: ";
+		cin >> choice;
+		cout << "The drink you choose is : " << choice << endl;
+		return 0;
+}
+
+int main(){
+	getUserDrink();
+	return 0; 
+ }
