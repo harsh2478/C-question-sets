@@ -1,0 +1,151 @@
+Question 1 :Write a C++ code snippet using the cout statement to print the message "Welcome to C++ programming!" on the console
+
+#include "iostream"
+using namespace std;
+int main(){
+cout << "Welcome to c++ programming" << endl;
+return 0;
+}
+
+
+Question 2: Declare two integer variables a and b. Assign values 7 and 3 to them, respectively. Calculate and print their difference
+
+#include "iostream"
+using namespace std;
+int main(){
+int a;
+int b;
+a = 7;
+b = 3;
+
+int z = a-b;
+cout << "The difference between a and b is : " << z << endl;
+return 0;
+}
+
+Question 3 :Declare an integer variable named num and assign it a value. Create a pointer variable that points to the address of num. 
+Print the value of num and the value stored at the address pointed by the pointer
+
+#include "iostream"
+using namespace std;
+int main() {
+int num = 5;
+int *p;
+p = &num;
+cout << "The memory address of num is " << &num << endl;
+cout << "And the address where pointer points is " << endl;
+cout << endl;
+cout << "The value stored in num is " << num << endl;
+cout << "The value store at the address where pointer point is " << *p << endl;
+return 0;
+}
+
+
+Question 4 : Declare an integer variable and print its physical memory address using the & symbol. 
+Create a pointer variable pointing to the same memory address. Print the value stored at the memory address using the * symbol
+
+#include "iostream"
+using namespace std;
+int main(){
+int num = 5;
+int *p;
+p = &num;
+cout << "The memory address of num is " << &num << endl;
+cout << "The value stored in num is " << num << endl;
+cout << "The value store at the address where pointer point is " << *p << endl;
+}
+
+
+Question 5 :Write a C++ program that declares three integer variables in a single line. Print the size of each variable using the sizeof keyword
+
+#include "iostream"
+using namespace std;
+int main() {
+int a=5, b=6, c=8;
+cout << "Size of first variable is" << sizeof(a) << endl;
+cout << "Size of second variable is" << sizeof(b) << endl;
+cout << "Size of third variable is" << sizeof(c) << endl;
+return 0;
+}
+
+
+Question 6 : Declare two integer variables a and b. Copy the value from the memory address of a to b without using the assignment operator (b = a;)
+
+#include "iostream"
+using namespace std;
+
+int main() {
+int x;
+int z;
+int *ptr;
+ptr = &x;
+*ptr = 5;
+z = *ptr; 
+cout << "The value store in x: " << x << endl;
+cout << "The value store in z: " << z << endl;
+return 0;
+}
+
+
+Question 7: Declare a pointer variable ptr and another pointer variable ptr_to_ptr that points to the address of ptr.
+
+#include "iostream"
+using namespace std;
+
+int main() {
+int x;
+int *ptr;
+ptr = &x;
+
+int **ptr_to_ptr;
+ptr_to_ptr = &(ptr);
+
+cout << "The memory address of x is: " << &x << endl;
+cout << "The address where ptr points to: " << ptr << endl;
+cout << "The original memory address of ptr is: " << &(ptr) << endl;
+cout << "The address where ptr_to_ptr points to: " << ptr_to_ptr << endl;
+cout << "The original memory address of ptr_to_ptr: " << &(ptr_to_ptr) << endl;
+return 0;
+}
+
+
+Question 8 : Declare an integer variable num and a pointer ptr that points to its address. 
+Print the value stored at the address pointed by ptr using the dereferencing operator
+
+#include "iostream"
+using namespace std;
+int main() {
+int num = 100;
+int *ptr;
+
+ptr = &num;
+cout << "The value stored in the address where ptr points is" << *ptr << endl;
+return 0;
+}
+
+
+Question 9 :Declare three integer variables a, b, and c in a single line
+
+#include "iostream"
+using namespace std;
+int main() {
+int  a = 10, b = 12, c = 14;
+cout << "Here we declare three variable whose values are: " ;
+cout << a << "," << b << "," << c << endl;
+return 0;
+}
+
+
+Question 10 : Declare a pointer variable and print its memory address
+
+#include "iostream"
+using namespace std;
+int main() {
+int x;
+int *ptr;
+ptr = &x;
+
+cout << "The memory address of variable where ptr points " << ptr << endl;
+cout << "The memory address of the pointer is: " << &ptr << endl;
+return 0;
+}
