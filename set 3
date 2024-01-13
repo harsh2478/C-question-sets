@@ -1,0 +1,167 @@
+
+QUESTION 1:
+Pass by Value
+1.1· Write a function square that takes an integer as a parameter and returns the square of that number. 
+1.2· Write a program to demonstrate calling this function and printing the result.
+
+SOLUTION :
+
+#include <iostream>
+using namespace std;
+
+int square(int &ref){
+	int result = ref*ref;
+	return result;
+}
+
+int main(){
+	int value;
+	cout << "Enter your value ";
+	cin >> value;
+	int result = square(value);
+	cout << "The square of your value is " << result;
+}
+
+
+QUESTION 2 
+Pass by Reference 
+2.1. Write a function swap that takes two integers as reference parameters and swaps their values.
+2.2. Write a program to demonstrate calling this function and printing the swapped values.
+
+SOLUTIONS;
+
+#include <iostream>
+using namespace std;
+
+int swap(int &x, int &y){
+	
+	int temp;
+	temp = x;
+	x = y;
+	y = temp;
+	cout << "The value of the x after swapping is " << x << endl;
+	cout << "The value of the y after swapping is " << y << endl;
+	return 0;
+}
+
+int main(){
+	int x;
+	int y;
+	cout << "Enter your value of x for swapping ";
+	cin >> x;
+	cout << "Enter your value of y for swapping ";
+	cin >> y;
+	cout << endl;
+	swap(x, y);
+	return 0;
+}
+
+
+QUESTION 3: 
+Pass by Pointer
+3.1. Write a function increment that takes an integer pointer as a parameter and increments the value it points to.
+3.2. Write a program to demonstrate calling this function and printing the updated value
+
+SOLUTION;
+
+#include <iostream>
+
+using namespace std;
+
+int increment(int *p){
+	int result = (*p)++;
+	return 0;	
+}
+
+int main(){
+	int num;
+	cout << "Enter the value you want to increment ";
+	cin >> num;
+	
+	increment( &num );
+	cout << "The value after increment is " << num << endl;
+	return 0;
+}
+
+
+QUESTION 4: 
+Mixed Parameter Types
+4.1. Write a function modifyValues that takes an integer by value, a float by reference, and a double pointer.
+4.2. Inside the function, square the integer, double the float, and set the value pointed by the double pointer to its square.
+4.3. Write a program to demonstrate calling this function with appropriate arguments.
+
+SOLUTION;
+
+#include <iostream>
+using namespace std;
+
+int modifyValues(int i, float &f, int **p ){
+	int sq = i*i;
+	f = f*2;
+	**p= (**p)*(**p);
+	return sq;
+}
+
+int main (){
+	int integer;
+	cout << "Enter the integer value ";
+	cin >> integer;
+	float floatnum;
+	cout << "Enter the float value ";
+	cin >> floatnum;
+	int *pointer;
+	cout << "Enter the double pointer value ";
+	int x;
+	cin >> x;
+	pointer = &x;
+	
+	int output = modifyValues(integer, floatnum, &pointer);
+	
+	cout << "The value of integer after modification is " << output << endl; 
+	cout << "The value of float after modification is " << floatnum << endl;
+	cout << "The value of integer after modification is " << *pointer << endl;
+	return 0;
+}
+
+
+QUESTION 5: 
+Pass by Reference with Pointer Manipulation
+5.1 Write a C++ function named swapValues that takes two integer variables as parameters and swaps their values using pass by reference.
+Additionally, use pointers to calculate and print the sum of the original values before swapping and the sum of the swapped values after the swap operation
+
+SOLUTION;
+
+#include <iostream>
+
+using namespace std;
+
+void swapValues(int &num1, int &num2){
+	// sum of the two original number using pointer
+	int sum1 = *(&num1) + *(&num2);
+	cout << "The sum before swapping the numbers is " << sum1 << endl;
+	
+	// swapping the number
+	
+	int temp;
+	temp = num1;
+	num1= num2;
+	num2= temp;
+	
+	// sum of theswapped numbers using pointer
+	int sum2 = *(&num1) + *(&num2);
+	cout << "The sum after swapping the values " << sum2 << endl;
+}
+
+int main(){
+	int a;
+	int b;
+	cout << "Enter The Value Of a = "; 
+	cin >> a;
+	cout << "Enter The Value Of b = ";
+	cin >> b;
+	
+	swapValues(a, b);
+}
+
+
+.
