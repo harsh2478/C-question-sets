@@ -1,0 +1,67 @@
+Question 1: Implement a C++ function named reverseString that takes a C-style string as a parameter and performs the following tasks:
+1)    Determine the length of the input string without using any standard library functions.
+2)    Create a new dynamically allocated character array to store the reverse of the input string.
+3)    Reverse the characters of the input string and store the result in the dynamically allocated array.
+4)   Print both the original and reversed strings.
+Use the function in the main program with an example string like "practice" and print the results.
+
+SOLUTION 1: 
+void reverseString(char ptr[])
+{
+	cout << "Your input string is " << ptr << endl;
+	cout << "The length of the string is ";
+	int length = 0;
+	while(ptr[length] != '\0'){
+		length++;
+	}
+	cout << length << endl;
+	
+	char reverse[length +1];
+	for(int len=0; len<length; len++ )
+	{
+		int index = length-1-len;
+		reverse[len] = ptr[index];
+	}
+	cout << "the original string is " << ptr << endl;
+	cout << "The reverse string is " << reverse << endl;
+}
+
+int main(){
+	char arry[] = { 'P', 'R', 'A', 'C', 'T', 'I', 'C', 'E', '\0'};
+	reverseString(arry);
+	return 0;
+}
+
+
+
+Question 2: Implement a C++ function named memoryAddresses that takes two variables of different data types as parameters and performs the following tasks:
+1)    Determine and print the memory address of the first variable without using any standard library functions.
+2)    Determine and print the memory address of the second variable without using any standard library functions.
+3)    Use the function in the main program with example variables and print the results.
+
+SOLUTION 2:
+#include "iostream"
+using namespace std;
+
+// The const keyword in C++ is used to indicate that a particular variable or object is constant, 
+// meaning its value cannot be modified after initialization. 
+// It is a type qualifier that can be applied to variables, pointers, references, member functions, and more.
+
+void memoryAddress(const int& x, const char& y)
+{
+	cout << "The memory address of 1st variable " << &x << endl;
+  cout << "The memory address of 2st variable " <<static_cast<const void*>(&y) << endl;
+
+// If you omit static_cast<const void*>, you might see a compilation error or unexpected behavior 
+// because the << operator might interpret the char* as a C-style string and try to print characters until it finds a null terminator. 
+// This is not what you want when printing memory addresses.	
+	
+}
+
+main()
+{
+	int i = 10;
+	char k = 'H';
+	memoryAddress(i, k);
+}
+
