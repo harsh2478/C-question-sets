@@ -25,7 +25,6 @@ void reverseString(char ptr[])
 	cout << "the original string is " << ptr << endl;
 	cout << "The reverse string is " << reverse << endl;
 }
-
 int main(){
 	char arry[] = { 'P', 'R', 'A', 'C', 'T', 'I', 'C', 'E', '\0'};
 	reverseString(arry);
@@ -50,7 +49,7 @@ using namespace std;
 void memoryAddress(const int& x, const char& y)
 {
 	cout << "The memory address of 1st variable " << &x << endl;
-  cout << "The memory address of 2st variable " <<static_cast<const void*>(&y) << endl;
+  	cout << "The memory address of 2st variable " <<static_cast<const void*>(&y) << endl;
 
 // If you omit static_cast<const void*>, you might see a compilation error or unexpected behavior 
 // because the << operator might interpret the char* as a C-style string and try to print characters until it finds a null terminator. 
@@ -66,5 +65,47 @@ main()
 }
 
 
-QUESTION 3:
+
+QUESTION 3: Implement a C++ function named dynamicMemoryAllocation that takes a variable of any data type as a parameter and performs the following tasks:\
+1)    Dynamically allocate memory for the variable.
+2)    Assign a value to the dynamically allocated variable.
+3)    Print the value and memory address of the dynamically allocated variable.
+4)    Deallocate the dynamically allocated memory.
+Use the function in the main program with an example variable and print the results.
+
+SOLUTION 3 :
+
+#include "iostream"
+#include "typeinfo"
+using namespace std;
+
+template <typename P>
+void dynamicMemoryAllocat(P value)
+{
+	P *ptr = new P;  // intialize null pointer & then memory is requested to the variable 
+	*ptr = value;    // dynamically assign value to dynamic variable 
+	cout << "The value you enter is " << *ptr << endl;
+	if(typeid(value) == typeid(char)) 
+	{
+		cout << "The memory address of value " << static_cast<const void*>(ptr) << endl; 
+	}
+	else
+	{
+		cout << "The memory address of value " << ptr << endl;
+	}
+	delete ptr;
+}
+
+main(){
+	string variable = "Hello";   // you can initialize any data type here
+	dynamicMemoryAllocat( variable );
+}
+
+
+
+QUESTION 4: Implement a C++ function named swapVariables that takes two integer pointers as parameters and performs the following tasks:
+1)    Swap the values of the variables pointed to by the given pointers.
+2)    Print the values of the variables after the swap.
+Use the function in the main program with example variables and print the results.
+
 
