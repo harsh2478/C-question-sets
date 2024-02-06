@@ -190,3 +190,152 @@ int main() {
 
 
 QUESTION 7;
+ Implement a C++ program that explores the manipulation of arrays using pointers with the following tasks:
+1)    Declare an integer array named numbers with a size of 5.
+2)    Populate the array with consecutive integers starting from 1 using pointer arithmetic.
+3)    Print the elements and their memory addresses in the array.
+4)    Double the value of each element using pointers and print the updated array.
+
+
+SOLUTION 7;
+#include <iostream>
+using namespace std;
+
+int main() {
+    int numbers[5];         // intializing array of size 5
+    int* p = numbers;         // initializing a pointer
+    for(int i=1; i<=5; i++){
+        *p = i;
+        p++;
+    }
+
+    //Printing the elements and their memory value
+
+    p = numbers;            //reseting pointer from last to first 
+    for(int n=0; n<5; n++){
+    cout << "The value of " << n+1 << " element is " << *(p+n) << " And the memory address of the element is " << p+n << endl;
+    }
+
+    //Updating and printing the array elements
+
+    p = numbers;
+    cout << " " << endl;
+    for(int k=1; k<=5; k++){
+        cout << "The element " << k << " after updated is " << *p * 2 << endl;
+        p++;
+    }
+}
+    
+
+QUESTION 8;
+ Implement a C++ program that explores dynamic memory allocation for an integer array with the following tasks:
+1)    Dynamically allocate memory for an integer array of size 3.
+2)    Populate the array with consecutive integers starting from 5 using pointer arithmetic.
+3)    Print the elements and their memory addresses in the dynamically allocated array.
+4)    Deallocate the dynamically allocated memory.
+
+
+SOLUTION 8;
+
+#include <iostream>
+using namespace std;
+
+int main(){
+    int* DynamicAllocArray = new int[3];
+    int* p = DynamicAllocArray;
+    
+    for(int i=5; i<=7; i++){
+        *p = i;
+        p++;
+    }
+    
+    p = DynamicAllocArray;
+    for(int n=0; n<3; n++){
+      cout << "The value of element " << n+1 << " is " << *p << " and its memory address is " << p << endl;
+      p++;
+    }
+    delete[] DynamicAllocArray;
+}
+
+
+QUESTION 9;
+Implement a C++ program that explores dynamic memory allocation for a string array with the following tasks:
+1)    Dynamically allocate memory for a string array of size 4.
+2)    Populate the array with names ("Alice", "Bob", "Charlie", "David") using pointer arithmetic.
+3)    Print the names and their memory addresses in the dynamically allocated array.
+4)    Deallocate the dynamically allocated memory.
+
+
+SOLUTIONS 9;
+
+#include <iostream>
+using namespace std;
+
+int main(){
+    string* dynamicNames = new string[4];
+    
+    *dynamicNames = "Alice";
+    *(dynamicNames+1) = "Bob";
+    *(dynamicNames+2) = "charlie";
+    *(dynamicNames+3) = "David";
+    
+    //ptr = dynamicNames;
+    for(int i=0; i<=3; i++){
+        cout << "The value of " << i+1 << " element is " << *dynamicNames << " and the memory address is " << dynamicNames << endl;
+        dynamicNames++;
+    }
+    delete[] dynamicNames;
+
+QUESTION 10;
+Implement a C++ program that dynamically allocates memory for an array of four Point structures. The Point structure has two integer fields: x and y. 
+Using pointer arithmetic,  populate the array with Point structures such that the x-coordinate follows an arithmetic progression starting from 5, 
+and the y-coordinate follows a geometric progression starting from 2 (common ratio = 3). Finally, print the coordinates of each Point in the array.
+
+SOLUTION 10;
+
+#include <iostream>
+using namespace std;
+
+int main(){
+    struct Point{
+      int x;
+      int y;
+    };
+    Point* dynamicArray = new Point[4];
+    int apValue = 5;
+    int gpValue = 2;
+    
+    for(int i=0; i < 4; i++) {
+        *(dynamicArray+i) = {apValue + i, gpValue * (3<<i)};
+    }
+
+    for(int j=0; j<4; j++){
+        cout << "The coordinate of point " << j+1 << " is : " << "x = " << dynamicArray[j].x << ", y = " <<   dynamicArray[j].y << endl; 
+    }
+}
+
+
+QUESTION 11;
+Implement a C++ program that utilizes the concept of memory addresses and references with the following tasks:
+1) Declare an integer variable number with an initial value of 7.
+2) Create a reference variable refNumber that references the memory address of number.
+3) Print the memory address of number using & and the value of refNumber.
+4) Update the value of number to 15 and observe the change in refNumber.
+
+SOLUTION 11;
+
+
+#include <iostream>
+using namespace std;
+
+int main() {
+    int number=7;
+    int& refNumber = number;
+    
+    cout << "The memory address of original vriable " << &number << endl;
+    cout << "The Value of reference variable " << refNumber << endl;
+    
+    number = 15;
+    cout << "The value of reference variable after updating original is " << refNumber << endl; 
+}
+
