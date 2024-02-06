@@ -108,4 +108,85 @@ QUESTION 4: Implement a C++ function named swapVariables that takes two integer 
 2)    Print the values of the variables after the swap.
 Use the function in the main program with example variables and print the results.
 
+SOLUTION 4:
 
+#include <iostream>
+using namespace std;
+
+void swapVariable(int *p, int *q)
+{
+  int temp;
+  temp = *p;
+  *p = *q;
+  *q = temp;
+}
+int main()
+{
+  int x=10;
+  int y=15;
+  swapVariable(&x, &y);
+  cout << "The value of x after swapping is " << x << endl;
+  cout << "The value of y after swapping is " << y << endl;
+}
+
+
+
+QUESTION 5:
+Implement a C++ function named arrayOperations that takes an integer array and its size as parameters and performs the following tasks:
+1)    Find and print the sum of all elements in the array.
+2)    Calculate and print the average of the elements in the array.
+3)    Find the maximum and minimum values in the array and print them.
+Use the function in the main program with an example array and print the results.
+
+SOLUTION 5:
+
+#include <iostream>
+using namespace std;
+
+void arrayOperation(const int array[], const int n)
+{
+  int sum=0;
+  for(int i=0; i<n; i++)
+  {
+     sum += array[i];
+  }
+  cout << "The sum of the array " << sum << end;
+}
+
+int main() 
+{
+  int arry[] = {1, 2, 3, 4, 5};
+  int size = sizeof(arry)/sizeof(arry[0]);
+  arrayOperation(arry, size);
+}
+
+
+
+QUESTION 6;
+Implement a C++ program that explores the concept of data structures using the following tasks:
+1)    Define a structure named Student with attributes name (string) and age (integer).
+2)    Create an array of Student structures and populate it with information for at least three students.
+3)    Print the details of each student from the array.
+
+SOLUTION 6;
+#include <iostream>
+using namespace std;
+
+struct Student {
+    string name;
+    int age;
+};
+int main() {
+    Student students[3];
+    students[0] = {"Harsh", 20};
+    students[1] = {"Manan", 20};
+    students[2] = {"Sourabh", 20};
+    
+    for(int i=0; i<3; i++){
+        cout << "Name of the student is " << students[i].name << " and age is " << students[i].age  << endl;
+    }
+    return 0;
+}
+
+
+QUESTION 7;
